@@ -867,7 +867,7 @@
 
 * Add Sendable conformance to Rule.Type for building with Swift 6.  
   [erikkerber](https://github.com/erikkerber)
-  [#issue_number](https://github.com/realm/SwiftLint/issues/issue_number)
+  [#6169](https://github.com/realm/SwiftLint/pull/6169)
 
 * Fix false positives for `Actor`-conforming delegate protocols in the
   `class_delegate_protocol` rule.  
@@ -1214,12 +1214,12 @@
 
 * Ignore super calls with trailing closures in `unneeded_override` rule.  
   [SimplyDanny](https://github.com/SimplyDanny)
-  [#5886](ttps://github.com/realm/SwiftLint/issues/5886)
+  [#5886](https://github.com/realm/SwiftLint/issues/5886)
 
 * If violations are detected by `lint` or `analyze`, still perform an update
   check for new versions of SwiftLint if requested.  
   [Martin Redington](https://github.com/mildm8nnered)
-  [#5904](ttps://github.com/realm/SwiftLint/issues/5904)
+  [#5904](https://github.com/realm/SwiftLint/issues/5904)
 
 ## 0.57.1: Squeaky Clean Cycle
 
