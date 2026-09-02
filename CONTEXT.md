@@ -22,6 +22,7 @@
 - 9 open good-first-issue/help-wanted issues
 
 ## Gap ledger (dedupe — READ FIRST, never re-pick)
+- `2026-09-02` self-found broken links (README Apple doc URLs, CHANGELOG `ttps://` x2, `#issue_number` placeholder) — outcome pr-opened (fork PR #1) — lesson: 5 verified broken-link fixes bundled into one docs PR
 - (none yet)
 
 ## Mined gaps (discovered, not yet attempted)
