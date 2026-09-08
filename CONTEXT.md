@@ -23,7 +23,7 @@
 
 ## Gap ledger (dedupe — READ FIRST, never re-pick)
 - `2026-09-02` self-found broken links (README Apple doc URLs, CHANGELOG `ttps://` x2, `#issue_number` placeholder) — outcome pr-opened (fork PR #1) — lesson: 5 verified broken-link fixes bundled into one docs PR
-- (none yet)
+- `2026-09-08` self-found typos (10 CHANGELOG, 2 README Xcode defaults key, 1 Configuration.swift doc comment, 1 MarkdownReporter description) — outcome pr-opened (fork PR #5) — lesson: 14 meaning-preserving typo fixes bundled into one docs+source PR
 
 ## Mined gaps (discovered, not yet attempted)
 - (none yet)
