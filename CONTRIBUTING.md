@@ -69,7 +69,7 @@ make bazel_test
 make docker_test
 ```
 
-If you find it too much effort to installed all the tooling required for the different build/test methods, just
+If you find it too much effort to install all the tooling required for the different build/test methods, just
 open a pull request and watch the CI results carefully. They include all the necessary builds and checks.
 
 ## Rules
