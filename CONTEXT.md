@@ -24,7 +24,7 @@
 ## Gap ledger (dedupe — READ FIRST, never re-pick)
 - `2026-09-02` self-found broken links (README Apple doc URLs, CHANGELOG `ttps://` x2, `#issue_number` placeholder) — outcome pr-opened (fork PR #1) — lesson: 5 verified broken-link fixes bundled into one docs PR
 - `2026-09-08` self-found typos (10 CHANGELOG, 2 README Xcode defaults key, 1 Configuration.swift doc comment, 1 MarkdownReporter description) — outcome pr-opened (fork PR #5) — lesson: 14 meaning-preserving typo fixes bundled into one docs+source PR
-- `2026-09-09` self-found typos (README/README_CN `IDESkipPackagePluginFingerprintValidatation`, CONTRIBUTING "to installed", proposal template "you idea", NestingRuleExamples `swich` x2) — outcome pr-opened (fork PR #4) — lesson: 6 typo fixes across 5 files bundled into one docs/comment PR
+- `2026-09-09` self-found typos (CONTRIBUTING "to installed", proposal template "you idea", NestingRuleExamples `swich` x2) — outcome pr-opened (fork PR #4) — lesson: 4 typo fixes across 3 files bundled into one docs/comment PR; README/README_CN `IDESkipPackagePluginFingerprintValidatation` covered by parallel PR #5
 
 ## Mined gaps (discovered, not yet attempted)
 - (none yet)
