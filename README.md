@@ -278,7 +278,7 @@ validations can be disabled with either of the following:
 * Setting Xcode defaults:
 
   ```bash
-  defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
+  defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidation -bool YES
   defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES
   ```
 
@@ -853,9 +853,9 @@ This is what the output would look like:
 
 It is important to note that the regular expression pattern is used with the
 flags `s` and `m` enabled, that is `.`
-[matches newlines](https://developer.apple.com/documentation/foundation/nsregularexpression/options/1412529-dotmatcheslineseparators)
+[matches newlines](https://developer.apple.com/documentation/foundation/nsregularexpression/options-swift.struct/dotmatcheslineseparators)
 and `^`/`$`
-[match the start and end of lines](https://developer.apple.com/documentation/foundation/nsregularexpression/options/1408263-anchorsmatchlines),
+[match the start and end of lines](https://developer.apple.com/documentation/foundation/nsregularexpression/options-swift.struct/anchorsmatchlines),
 respectively. If you do not want to have `.` match newlines, for example, the
 regex can be prepended by `(?-s)`.
 

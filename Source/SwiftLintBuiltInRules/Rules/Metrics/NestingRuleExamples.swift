@@ -141,7 +141,7 @@ internal struct NestingRuleExamples {
     private static let nonTriggeringClosureAndStatementExamples =
         detectingTypes.flatMap { type -> [Example] in
             #examples([
-                // swich statement example
+                // switch statement example
                 """
                     switch example {
                     case .exampleCase:
@@ -366,7 +366,7 @@ extension NestingRuleExamples {
     private static let triggeringClosureAndStatementExamples =
         detectingTypes.flatMap { type -> [Example] in
             #examples([
-                // swich statement example
+                // switch statement example
                 """
                     switch example {
                     case .exampleCase:
