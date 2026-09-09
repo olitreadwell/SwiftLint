@@ -1,12 +1,12 @@
 import Foundation
 
-/// Reports violations as markdown formated (with tables).
+/// Reports violations as markdown formatted (with tables).
 struct MarkdownReporter: Reporter {
     // MARK: - Reporter Conformance
 
     static let identifier = "markdown"
     static let isRealtime = false
-    static let description = "Reports violations as markdown formated (with tables)."
+    static let description = "Reports violations as markdown formatted (with tables)."
 
     static func generateReport(_ violations: [StyleViolation]) -> String {
         let keys = [
