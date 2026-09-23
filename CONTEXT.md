@@ -27,4 +27,4 @@
 - `2026-09-09` self-found typos (CONTRIBUTING "to installed", proposal template "you idea", NestingRuleExamples `swich` x2) — outcome pr-opened (fork PR #4) — lesson: 4 typo fixes across 3 files bundled into one docs/comment PR; README/README_CN `IDESkipPackagePluginFingerprintValidatation` covered by parallel PR #5
 
 ## Mined gaps (discovered, not yet attempted)
-- (none yet)
+- `2026-09-24` self-found typos (`flattend`->`flattened` x4 in NestingRuleExamples comments; `exaclty`->`exactly` x2 in TestHelpers assertion messages) — outcome pr-opened (fork PR #7) — lesson: 6 meaning-preserving comment/test-message typo fixes bundled into one docs/source PR; distinct strings from unmerged PR #5
