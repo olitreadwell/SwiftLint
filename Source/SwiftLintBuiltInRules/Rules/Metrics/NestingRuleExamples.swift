@@ -24,7 +24,7 @@ internal struct NestingRuleExamples {
 
                 /*
                  all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-                 are flattend in a file structure so limits do not change
+                 are flattened in a file structure so limits do not change
                 */
                 """
                     var example: Int {
@@ -67,7 +67,7 @@ internal struct NestingRuleExamples {
 
         /*
          all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-         are flattend in a file structure so level limits do not change
+         are flattened in a file structure so level limits do not change
         */
         """
             var example: Int {
@@ -268,7 +268,7 @@ extension NestingRuleExamples {
 
                 /*
                  all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-                 are flattend in a file structure so limits do not change
+                 are flattened in a file structure so limits do not change
                  */
                 """
                     var example: Int {
@@ -319,7 +319,7 @@ extension NestingRuleExamples {
 
         /*
          all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-         are flattend in a file structure so level limits do not change
+         are flattened in a file structure so level limits do not change
          */
         """
             var example: Int {
