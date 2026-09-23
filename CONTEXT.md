@@ -1,5 +1,5 @@
 # realm/SwiftLint context
-> refreshed 2026-09-09 | upstream default: main @ a510662ca
+> refreshed 2026-09-23T20:22Z | upstream default: main @ d5156105b
 
 ## Identity & policies
 - upstream: realm/SwiftLint, default branch main, primary language Swift, English-first (yes)
