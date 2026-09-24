@@ -721,7 +721,7 @@
   [#6253](https://github.com/realm/SwiftLint/issues/6235)
 
 * Exclude `@concurrent` functions from `async_without_await` rule analysis.
-  `@concurrent` functions requires `aysnc` in any case.  
+  `@concurrent` functions requires `async` in any case.  
   [nandhinisubbu](https://github.com/nandhinisubbu)
   [#6283](https://github.com/realm/SwiftLint/issues/6283)
 
@@ -872,7 +872,7 @@
 
 * Add Sendable conformance to Rule.Type for building with Swift 6.  
   [erikkerber](https://github.com/erikkerber)
-  [#issue_number](https://github.com/realm/SwiftLint/issues/issue_number)
+  [#6169](https://github.com/realm/SwiftLint/pull/6169)
 
 * Fix false positives for `Actor`-conforming delegate protocols in the
   `class_delegate_protocol` rule.  
@@ -1219,12 +1219,12 @@
 
 * Ignore super calls with trailing closures in `unneeded_override` rule.  
   [SimplyDanny](https://github.com/SimplyDanny)
-  [#5886](ttps://github.com/realm/SwiftLint/issues/5886)
+  [#5886](https://github.com/realm/SwiftLint/issues/5886)
 
 * If violations are detected by `lint` or `analyze`, still perform an update
   check for new versions of SwiftLint if requested.  
   [Martin Redington](https://github.com/mildm8nnered)
-  [#5904](ttps://github.com/realm/SwiftLint/issues/5904)
+  [#5904](https://github.com/realm/SwiftLint/issues/5904)
 
 ## 0.57.1: Squeaky Clean Cycle
 
@@ -1642,7 +1642,7 @@
   [SimplyDanny](https://github.com/SimplyDanny)
   [#5568](https://github.com/realm/SwiftLint/issues/5568)
 
-* Treat condionally activatable variable declarations and initializer as if
+* Treat conditionally activatable variable declarations and initializer as if
   they were always active in `unneeded_synthesized_initializer` rule to avoid
   compilation issues when unexpected items are there after all.  
   [SimplyDanny](https://github.com/SimplyDanny)
@@ -2054,7 +2054,7 @@
 * Hide all `Reporter`s from SwiftLint's' public interface.  
   [SimplyDanny](https://github.com/SimplyDanny)
 
-* The options `inlcuded`, `name` and `message` are from now on ignored in the
+* The options `included`, `name` and `message` are from now on ignored in the
   configuration for the `private_unit_test` rule. The option `regex` is still
   supported but is deprecated. It's recommended to use the list
   `test_parent_classes` instead which accepts names of parent test classes.  
@@ -2309,7 +2309,7 @@
   [SimplyDanny](https://github.com/SimplyDanny)
   [#4989](https://github.com/realm/SwiftLint/issues/4989)
 
-* Do not trigger `redundant_self_in_closure` rule when another idenfier `x` in
+* Do not trigger `redundant_self_in_closure` rule when another identifier `x` in
   scope shadows the field accessed by `self.x` to avoid semantical changes.  
   [SimplyDanny](https://github.com/SimplyDanny)
   [#5010](https://github.com/realm/SwiftLint/issues/5010)
@@ -2460,7 +2460,7 @@
   * Strongly captured `self` (`{ [self] in ... }`)
   * Closure used in a struct declaration (`self` can always be omitted)
   * Anonymous closures that are directly called (`{ ... }()`) as they are
-    definitly not escaping
+    definitely not escaping
   * Weakly captured `self` with explicit unwrapping
 
   [SimplyDanny](https://github.com/SimplyDanny)
@@ -2505,7 +2505,7 @@
   [#4843](https://github.com/realm/SwiftLint/issues/4843)
 
 * Add new `unhandled_throwing_task` rule that triggers when a Task with an
-  implicit error type has unhandled trys or errors thrown inside its body.
+  implicit error type has unhandled tries or errors thrown inside its body.
   This results in errors being silently discarded, which may be unexpected.
   See [this forum thread](https://forums.swift.org/t/56066) for more details.  
   [kylebshr](https://github.com/kylebshr)
@@ -3413,7 +3413,7 @@ macOS < 12.
   you need to use the keys `iOSApplicationExtension_deployment_target`,
   `macOSApplicationExtension_deployment_target`,
   `watchOSApplicationExtension_deployment_target`, and
-  `tvOSApplicationExtension_deployment_target`. Extentions default to
+  `tvOSApplicationExtension_deployment_target`. Extensions default to
   their counterparts unless they are explicitly defined.  
   [tahabebek](https://github.com/tahabebek)
   [#4004](https://github.com/realm/SwiftLint/issues/4004)
@@ -4073,7 +4073,7 @@ macOS < 12.
 * Allow configuring related USRs to skip in UnusedDeclarationRule by
   specifying a list of USRs in the `related_usrs_to_skip` key.
   For example you might have custom source tooling that does something
-  with types conforming to a procotol even if that type is never
+  with types conforming to a protocol even if that type is never
   explicitly referenced by other code.  
   [JP Simard](https://github.com/jpsim)
 
@@ -5226,7 +5226,7 @@ This is the last release to support building with Swift 4.2.x.
   [Norio Nomura](https://github.com/norio-nomura)
 
 * Add option to configure how nested types should be separated in file names by
-  introducting `nested_type_separator` configuration for the `file_name` rule.  
+  introducing `nested_type_separator` configuration for the `file_name` rule.  
   [Frederick Pietschmann](https://github.com/fredpi)
   [#2717](https://github.com/realm/SwiftLint/issues/2717)
 
@@ -6753,7 +6753,7 @@ The next release will require Swift 4.0 or higher to build.
 ### Bug Fixes
 
 * Fix false positive on `force_unwrapping` rule when declaring
-  local variable with implicity unwrapped type.  
+  local variable with implicitly unwrapped type.  
   [Otávio Lima](https://github.com/otaviolima)
   [#1710](https://github.com/realm/SwiftLint/issues/1710)
 

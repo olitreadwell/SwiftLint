@@ -24,7 +24,7 @@ internal struct NestingRuleExamples {
 
                 /*
                  all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-                 are flattend in a file structure so limits do not change
+                 are flattened in a file structure so limits do not change
                 */
                 """
                     var example: Int {
@@ -67,7 +67,7 @@ internal struct NestingRuleExamples {
 
         /*
          all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-         are flattend in a file structure so level limits do not change
+         are flattened in a file structure so level limits do not change
         */
         """
             var example: Int {
@@ -141,7 +141,7 @@ internal struct NestingRuleExamples {
     private static let nonTriggeringClosureAndStatementExamples =
         detectingTypes.flatMap { type -> [Example] in
             #examples([
-                // swich statement example
+                // switch statement example
                 """
                     switch example {
                     case .exampleCase:
@@ -268,7 +268,7 @@ extension NestingRuleExamples {
 
                 /*
                  all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-                 are flattend in a file structure so limits do not change
+                 are flattened in a file structure so limits do not change
                  */
                 """
                     var example: Int {
@@ -319,7 +319,7 @@ extension NestingRuleExamples {
 
         /*
          all variableKinds of SwiftDeclarationKind (except .varParameter which is a function parameter)
-         are flattend in a file structure so level limits do not change
+         are flattened in a file structure so level limits do not change
          */
         """
             var example: Int {
@@ -366,7 +366,7 @@ extension NestingRuleExamples {
     private static let triggeringClosureAndStatementExamples =
         detectingTypes.flatMap { type -> [Example] in
             #examples([
-                // swich statement example
+                // switch statement example
                 """
                     switch example {
                     case .exampleCase:
