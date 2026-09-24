@@ -11,5 +11,5 @@ about: Let us know about a feature idea or propose an improvement.
 
 ### Feature or Enhancement Proposal
 
-Describe you idea or proposal here. This can be a new feature, an enhancement to an existing feature, or a change to the
+Describe your idea or proposal here. This can be a new feature, an enhancement to an existing feature, or a change to the
 project's behavior. Be sure to include the rationale behind the proposal and any relevant context or examples.
