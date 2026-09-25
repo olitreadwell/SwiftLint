@@ -1,5 +1,5 @@
 # realm/SwiftLint context
-> refreshed 2026-09-23T20:22Z | upstream default: main @ d5156105b
+> refreshed 2026-09-25T00:00Z | upstream default: main @ d5156105b
 
 ## Identity & policies
 - upstream: realm/SwiftLint, default branch main, primary language Swift, English-first (yes)
@@ -25,6 +25,8 @@
 - `2026-09-02` self-found broken links (README Apple doc URLs, CHANGELOG `ttps://` x2, `#issue_number` placeholder) — outcome pr-opened (fork PR #1) — lesson: 5 verified broken-link fixes bundled into one docs PR
 - `2026-09-08` self-found typos (10 CHANGELOG, 2 README Xcode defaults key, 1 Configuration.swift doc comment, 1 MarkdownReporter description) — outcome pr-opened (fork PR #5) — lesson: 14 meaning-preserving typo fixes bundled into one docs+source PR
 - `2026-09-09` self-found typos (CONTRIBUTING "to installed", proposal template "you idea", NestingRuleExamples `swich` x2) — outcome pr-opened (fork PR #4) — lesson: 4 typo fixes across 3 files bundled into one docs/comment PR; README/README_CN `IDESkipPackagePluginFingerprintValidatation` covered by parallel PR #5
+- `2026-09-24` self-found typos (`flattend`->`flattened` x4 in NestingRuleExamples comments; `exaclty`->`exactly` x2 in TestHelpers assertion messages) — outcome pr-opened (fork PR #7) — lesson: 6 meaning-preserving comment/test-message typo fixes bundled into one docs/source PR; distinct strings from unmerged PR #5 (moved here from a misplaced "Mined gaps" entry)
+- `2026-09-25` issue #6909 (baseline matching silently fails under `/private` paths when `excluded:` non-empty) — outcome pr-opened (fork PR #8) — lesson: original pick #6922 (`duplicate_imports`/@testable) was already claimed upstream, dropped; self-found, live-verified gap in `relativeDisplayPath` — strip leading `/private/` from both sides before `replacing` (mirrors `Excluder` precedent) so enumerator paths resolve to `String.url()`-standardized keys; repro exit=2 before fix, 0 after; locally swift-build verified; fork CI caveat: Azure/Buildkite not connected, GitHub Actions Lint/Build/Test/Docs run on the fork
 
 ## Mined gaps (discovered, not yet attempted)
-- `2026-09-24` self-found typos (`flattend`->`flattened` x4 in NestingRuleExamples comments; `exaclty`->`exactly` x2 in TestHelpers assertion messages) — outcome pr-opened (fork PR #7) — lesson: 6 meaning-preserving comment/test-message typo fixes bundled into one docs/source PR; distinct strings from unmerged PR #5
+- none
