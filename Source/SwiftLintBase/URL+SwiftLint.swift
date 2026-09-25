@@ -55,7 +55,18 @@ public extension URL {
     /// > Warning: Use this representation only for displaying file paths to users. It is not
     ///   suitable for file operations.
     var relativeDisplayPath: String {
-        let path = path.replacing(Self.cwd.path, with: "")
+        // FileManager's directory enumerator yields paths under firmlinks (e.g. /tmp, /var)
+        // with a leading /private prefix, while `String.url()` standardizes it away. Strip the
+        // prefix from both sides before the replacement so relative display paths match across
+        // the two representations. Mirrors the Excluder's approach in FileManager+SwiftLint.swift.
+        let privatePrefix = "/private"
+        let cwdPath = Self.cwd.path.hasPrefix(privatePrefix + "/")
+            ? String(Self.cwd.path.dropFirst(privatePrefix.count))
+            : Self.cwd.path
+        let normalizedPath = path.hasPrefix(privatePrefix + "/")
+            ? String(path.dropFirst(privatePrefix.count))
+            : path
+        let path = normalizedPath.replacing(cwdPath, with: "")
         if path.starts(with: "/") {
             return String(path.dropFirst())
         }
