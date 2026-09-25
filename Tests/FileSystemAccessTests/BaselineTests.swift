@@ -87,6 +87,24 @@ struct BaselineTests {
         }
     }
 
+    @Test
+    func filteredAcrossPrivatePrefix() throws {
+        // When a project lives under a firmlink (e.g. a `mktemp -d` directory under
+        // /private/var/folders), FileManager's enumerator yields /private-prefixed file paths
+        // while paths read back from a written baseline are standardized without the prefix.
+        // Both must still resolve to the same relative key (issue #6909).
+        let cwd = URL(filePath: "/private/var/folders/ab/example", directoryHint: .isDirectory)
+        try CurrentWorkingDirectory.$url.withValue(cwd) {
+            // Write side: the enumerator reports the /private-prefixed path.
+            let enumeratorFile = URL(filePath: "/private/var/folders/ab/example/Sources/Foo.swift")
+            let baseline = Baseline(violations: Self.violations(for: enumeratorFile))
+            // Read side: `String.url()` standardizes the stored relative path and drops the
+            // /private prefix, so the violation file is resolved without it.
+            let readFile = URL(filePath: "/var/folders/ab/example/Sources/Foo.swift")
+            #expect(baseline.filter(Self.violations(for: readFile)).isEmpty)
+        }
+    }
+
     @Test(.temporaryDirectory)
     func unchangedViolations() throws {
         try withExampleFileCreated { sourceFilePath in
