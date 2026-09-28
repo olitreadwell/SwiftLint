@@ -29,6 +29,13 @@
   [SimplyDanny](https://github.com/SimplyDanny)
   [#5740](https://github.com/realm/SwiftLint/issues/5740)
 
+* Fix baseline matching for violations whose source files live under a
+  `/private` path (e.g. a `mktemp -d` directory or CI workspace) when the
+  configuration has a non-empty `excluded:` list. The relative file keys used at
+  write time and read time are now normalized consistently.  
+  [olitreadwell](https://github.com/olitreadwell)
+  [#6909](https://github.com/realm/SwiftLint/issues/6909)
+
 * Fix `orphaned_doc_comment` to report documentation groups superseded by later
   docs after a blank line.  
   [Hokila](https://github.com/Hokila)
