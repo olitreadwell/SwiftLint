@@ -3413,7 +3413,7 @@ macOS < 12.
   you need to use the keys `iOSApplicationExtension_deployment_target`,
   `macOSApplicationExtension_deployment_target`,
   `watchOSApplicationExtension_deployment_target`, and
-  `tvOSApplicationExtension_deployment_target`. Extentions default to
+  `tvOSApplicationExtension_deployment_target`. Extensions default to
   their counterparts unless they are explicitly defined.  
   [tahabebek](https://github.com/tahabebek)
   [#4004](https://github.com/realm/SwiftLint/issues/4004)
@@ -4073,7 +4073,7 @@ macOS < 12.
 * Allow configuring related USRs to skip in UnusedDeclarationRule by
   specifying a list of USRs in the `related_usrs_to_skip` key.
   For example you might have custom source tooling that does something
-  with types conforming to a procotol even if that type is never
+  with types conforming to a protocol even if that type is never
   explicitly referenced by other code.  
   [JP Simard](https://github.com/jpsim)
 
@@ -5226,7 +5226,7 @@ This is the last release to support building with Swift 4.2.x.
   [Norio Nomura](https://github.com/norio-nomura)
 
 * Add option to configure how nested types should be separated in file names by
-  introducting `nested_type_separator` configuration for the `file_name` rule.  
+  introducing `nested_type_separator` configuration for the `file_name` rule.  
   [Frederick Pietschmann](https://github.com/fredpi)
   [#2717](https://github.com/realm/SwiftLint/issues/2717)
 
@@ -5373,7 +5373,7 @@ This is the last release to support building with Swift 4.2.x.
   [Frederick Pietschmann](https://github.com/fredpi)
   [#2670](https://github.com/realm/SwiftLint/issues/2670)
 
-* Fix issues in `explict_acl`, `redundant_set_access_control` and
+* Fix issues in `explicit_acl`, `redundant_set_access_control` and
   `explicit_top_level_acl` rules when using Swift 5.  
   [Marcelo Fabri](https://github.com/marcelofabri)
   [#2694](https://github.com/realm/SwiftLint/issues/2694)
@@ -6753,7 +6753,7 @@ The next release will require Swift 4.0 or higher to build.
 ### Bug Fixes
 
 * Fix false positive on `force_unwrapping` rule when declaring
-  local variable with implicity unwrapped type.  
+  local variable with implicitly unwrapped type.  
   [Otávio Lima](https://github.com/otaviolima)
   [#1710](https://github.com/realm/SwiftLint/issues/1710)
 
@@ -8007,7 +8007,7 @@ The next release will require Swift 4.0 or higher to build.
   [Angel G. Olloqui](https://github.com/angelolloqui)
   [#803](https://github.com/realm/SwiftLint/issues/803)
 
-* Add `RedundantNilCoalesingRule` opt-in rule that warns against `?? nil`.  
+* Add `RedundantNilCoalescingRule` opt-in rule that warns against `?? nil`.  
   [Daniel Beard](https://github.com/daniel-beard)
   [#764](https://github.com/realm/SwiftLint/issues/764)
 
