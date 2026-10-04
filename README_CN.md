@@ -154,7 +154,7 @@ bazel run -c opt @SwiftLint//:swiftlint
 
 整合 SwiftLint 到 Xcode 体系中去从而可以使警告和错误显示到 IDE 上，只需要在 Xcode 中添加一个新的“Run Script Phase”并且包含如下代码即可：
 
-![](https://raw.githubusercontent.com/realm/SwiftLint/main/assets/runscript.png)
+![](https://web.archive.org/web/20240328023749/https://raw.githubusercontent.com/realm/SwiftLint/main/assets/runscript.png)
 
 Xcode 15 对 Build Settings 进行了重大更改，它将 `ENABLE_USER_SCRIPT_SANDBOXING` 的默认值从 `NO` 更改为 `YES`。
 因此，SwiftLint 会遇到与缺少文件权限相关的错误，通常报错信息为：`error: Sandbox: swiftlint(19427) deny(1) file-read-data.`
@@ -221,12 +221,12 @@ Xcode 构建工具插件。
 打开 `Run Build Tool Plug-ins` 并选择 `+` 按钮。
 从列表中选择 `SwiftLintBuildToolPlugin` 并将其添加到项目中。
 
-![](https://raw.githubusercontent.com/realm/SwiftLint/main/assets/select-swiftlint-plugin.png)
+![](https://web.archive.org/web/20240328023748/https://raw.githubusercontent.com/realm/SwiftLint/main/assets/select-swiftlint-plugin.png)
 
 对于无人值守的使用场景（例如在 CI 上），可以通过以下方式禁用软件包和宏的验证对话框
 
 * 单独将 `-skipPackagePluginValidation` 和 `-skipMacroValidation` 传递到 `xcodebuild` 或者
-* 为那个用户使用 `defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES` 进行全局设置，然后写入 `defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES`
+* 为那个用户使用 `defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidation -bool YES` 进行全局设置，然后写入 `defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES`
 
 _注意：这将隐含地信任所有的Xcode软件包插件，并绕过Xcode的软件包验证对话框。
        这对安全有影响。_
@@ -267,7 +267,7 @@ swiftlint(
         "AppDelegate.swift",
         "path/to/project/Model.swift"
     ],
-    ignore_exit_status: true,               # 允许fastlane可以继续执行甚至是Swiftlint返回一个非0的退出状态(默认值: false)
+    ignore_exit_status: true,               # 允许fastlane可以继续执行甚至是SwiftLint返回一个非0的退出状态(默认值: false)
     quiet: true,                            # 不输出像‘Linting’和‘Done Linting’的状态日志 (默认值: false)
     strict: true                            # 发现警告时报错? (默认值: false)
 )
@@ -316,7 +316,7 @@ Available commands:
 
 在包含有需要执行代码分析的 Swift 源码文件的目录下执行 `swiftlint` 命令，会对目录进行递归查找。
 
-当使用 `lint` 或者 `autocorrect` 命令时，你可以通过添加 `--use-script-input-files` 选项并且设置以下实例变量：`SCRIPT_INPUT_FILE_COUNT` 和
+当使用 `lint` 或者 `analyze` 命令时，你可以通过添加 `--use-script-input-files` 选项并且设置以下实例变量：`SCRIPT_INPUT_FILE_COUNT` 和
 `SCRIPT_INPUT_FILE_0`, `SCRIPT_INPUT_FILE_1`... `SCRIPT_INPUT_FILE_{SCRIPT_INPUT_FILE_COUNT - 1}` 的方式来指定一个文件列表（就像被 Xcode 特别是 [`ExtraBuildPhase`](https://github.com/norio-nomura/ExtraBuildPhase) Xcode 插件修改的文件组成的列表，或者类似 Git 工作树中 `git ls-files -m` 命令显示的被修改的文件列表）。
 
 也有类似的用来设置输入文件的环境变量以 [自定义 Xcode script phases](http://indiestack.com/2014/12/speeding-up-custom-script-phases/) 。
@@ -346,7 +346,7 @@ SwiftLint 工作于 SourceKit 这一层，所以 Swift 版本发生变化时它�
 你可能也给反向 DNS 符号设置了 `TOOLCHAINS` 环境变量来标记一个特定的 Swift 工具集版本：
 
 ```shell
-TOOLCHAINS=com.apple.dt.toolchain.Swift_2_3 swiftlint autocorrect
+TOOLCHAINS=com.apple.dt.toolchain.Swift_2_3 swiftlint --fix
 ```
 
 在 Linux 上，SourceKit 默认需要位于 `/usr/lib/libsourcekitdInProc.so` 或者通过 `LINUX_SOURCEKIT_LIB_PATH` 环境变量进行指定。
@@ -574,7 +574,7 @@ SwiftLint 支持通过嵌套配置文件的方式来对代码分析过程进行�
 
 SwiftLint 可以自动修正某些错误，磁盘上的文件会被一个修正后的版本覆盖。
 
-请确保在对文件执行 `swiftlint autocorrect` 之前有对它们做过备份，否则的话有可能导致重要数据的丢失。
+请确保在对文件执行 `swiftlint --fix` 之前有对它们做过备份，否则的话有可能导致重要数据的丢失。
 
 因为在执行自动更正修改某个文件后很有可能导致之前生成的代码检查信息无效或者不正确，所以当在执行代码更正时标准的检查是无法使用的。
 
@@ -588,7 +588,7 @@ SwiftLint 可以自动修正某些错误，磁盘上的文件会被一个修正�
 
 SwiftLint 是由 Realm Inc 建立和维护的。Realm 的名字和标志是属于 Realm Inc 的注册商标。
 
-我们 :heart: 开源软件！看一下[我们的其他开源项目](https://github.com/realm)，瞅一眼[我们的博客](https://realm.io/news)，或者在推特上跟我们唠唠嗑([@realm](https://twitter.com/realm))。
+我们 :heart: 开源软件！看一下[我们的其他开源项目](https://github.com/realm)，瞅一眼[我们的博客](https://web.archive.org/web/20170327173731/https://realm.io/news/)，或者在推特上跟我们唠唠嗑([@realm](https://twitter.com/realm))。
 
 <img src="https://raw.githubusercontent.com/realm/SwiftLint/main/assets/macstadium.png" width="184" />
 
