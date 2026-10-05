@@ -252,8 +252,93 @@ private extension FunctionCallExprSyntax {
         }
         if let arrayExpr = expression.as(ArrayExprSyntax.self) {
             return arrayExpr.elements.contains { element in
-                self.expressionContainsButtonOrLinkTrait(element.expression)
+                expressionContainsButtonOrLinkTrait(element.expression)
             }
+        }
+        // A ternary expression provides a trait only when both of its branches do.
+        if let ternaryBranches = ternaryBranches(of: expression) {
+            return ternaryBranches.allSatisfy(expressionContainsButtonOrLinkTrait)
+        }
+        // An `if` expression (e.g. `if #available`) provides a trait only when every branch does.
+        if let ifExpr = expression.as(IfExprSyntax.self) {
+            return ifExpressionProvidesButtonOrLinkTrait(ifExpr)
+        }
+        // Trait arrays built inside a closure, e.g. in an immediately invoked closure `{ ... }()`.
+        if let statements = closureStatements(of: expression) {
+            return statementsContainButtonOrLinkTrait(statements)
+        }
+        return false
+    }
+
+    /// Returns the branches of a ternary expression, or `nil` if the expression is not a ternary. The parser
+    /// keeps `condition ? then : else` as a sequence expression holding an `UnresolvedTernaryExprSyntax` until
+    /// operators are folded, so both spellings are handled.
+    private static func ternaryBranches(of expression: ExprSyntax) -> [ExprSyntax]? {
+        if let ternaryExpr = expression.as(TernaryExprSyntax.self) {
+            return [ternaryExpr.thenExpression, ternaryExpr.elseExpression]
+        }
+        if let sequenceExpr = expression.as(SequenceExprSyntax.self) {
+            return unresolvedTernaryBranches(of: sequenceExpr)
+        }
+        return nil
+    }
+
+    private static func unresolvedTernaryBranches(of sequenceExpr: SequenceExprSyntax) -> [ExprSyntax]? {
+        let elements = Array(sequenceExpr.elements)
+        guard let index = elements.firstIndex(where: { $0.is(UnresolvedTernaryExprSyntax.self) }),
+              let ternary = elements[index].as(UnresolvedTernaryExprSyntax.self),
+              elements.indices.contains(index + 1) else {
+            return nil
+        }
+        return [ternary.thenExpression, elements[index + 1]]
+    }
+
+    /// An `if` expression provides a trait only when its body and every `else` branch do. An `if` without an
+    /// `else` branch may not provide the trait at all.
+    private static func ifExpressionProvidesButtonOrLinkTrait(_ ifExpr: IfExprSyntax) -> Bool {
+        guard statementsContainButtonOrLinkTrait(ifExpr.body.statements) else {
+            return false
+        }
+        switch ifExpr.elseBody {
+        case .codeBlock(let elseBlock):
+            return statementsContainButtonOrLinkTrait(elseBlock.statements)
+        case .ifExpr(let elseIfExpr):
+            return ifExpressionProvidesButtonOrLinkTrait(elseIfExpr)
+        case .none:
+            return false
+        }
+    }
+
+    private static func closureStatements(of expression: ExprSyntax) -> CodeBlockItemListSyntax? {
+        if let closureExpr = expression.as(ClosureExprSyntax.self) {
+            return closureExpr.statements
+        }
+        if let callExpr = expression.as(FunctionCallExprSyntax.self),
+           let closureExpr = callExpr.calledExpression.as(ClosureExprSyntax.self) {
+            return closureExpr.statements
+        }
+        return nil
+    }
+
+    private static func statementsContainButtonOrLinkTrait(_ statements: CodeBlockItemListSyntax) -> Bool {
+        statements.contains { item in
+            switch item.item {
+            case .expr(let expression):
+                return expressionContainsButtonOrLinkTrait(expression)
+            case .stmt(let statement):
+                return statementProvidesButtonOrLinkTrait(statement)
+            case .decl:
+                return false
+            }
+        }
+    }
+
+    private static func statementProvidesButtonOrLinkTrait(_ statement: StmtSyntax) -> Bool {
+        if let expressionStmt = statement.as(ExpressionStmtSyntax.self) {
+            return expressionContainsButtonOrLinkTrait(expressionStmt.expression)
+        }
+        if let returnStmt = statement.as(ReturnStmtSyntax.self), let returnValue = returnStmt.expression {
+            return expressionContainsButtonOrLinkTrait(returnValue)
         }
         return false
     }
