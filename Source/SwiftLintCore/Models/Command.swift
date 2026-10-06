@@ -11,7 +11,7 @@ public struct Command: Equatable {
         /// The action string was invalid.
         case invalid
 
-        /// - returns: The inverse action that can cancel out the current action, restoring the SwifttLint engine's
+        /// - returns: The inverse action that can cancel out the current action, restoring the SwiftLint engine's
         ///            state prior to the current action.
         package func inverse() -> Self {
             switch self {

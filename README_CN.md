@@ -267,7 +267,7 @@ swiftlint(
         "AppDelegate.swift",
         "path/to/project/Model.swift"
     ],
-    ignore_exit_status: true,               # 允许fastlane可以继续执行甚至是Swiftlint返回一个非0的退出状态(默认值: false)
+    ignore_exit_status: true,               # 允许fastlane可以继续执行甚至是SwiftLint返回一个非0的退出状态(默认值: false)
     quiet: true,                            # 不输出像‘Linting’和‘Done Linting’的状态日志 (默认值: false)
     strict: true                            # 发现警告时报错? (默认值: false)
 )

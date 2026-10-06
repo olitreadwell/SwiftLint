@@ -4888,7 +4888,7 @@ This is the last release to support building with Swift 5.0.x.
 
 * Replace the `SyntaxToken` and `SyntaxMap` structures used in
   public SwiftLintFramework APIs with a new  `SwiftLintSyntaxToken`
-  and `SwiftlintSyntaxMap` wrappers over structures returned from
+  and `SwiftLintSyntaxMap` wrappers over structures returned from
   SourceKitten.  
   [PaulTaykalo](https://github.com/PaulTaykalo)
   [#2955](https://github.com/realm/SwiftLint/issues/2955)
@@ -4951,7 +4951,7 @@ This is the last release to support building with Swift 5.0.x.
   [PaulTaykalo](https://github.com/PaulTaykalo)
   [#2929](https://github.com/realm/SwiftLint/issues/2929)
 
-* Speed up Swiftlint by using swift enums instead of raw values for
+* Speed up SwiftLint by using swift enums instead of raw values for
   dictionary lookups.  
   [PaulTaykalo](https://github.com/PaulTaykalo)
   [#2924](https://github.com/realm/SwiftLint/issues/2924)
@@ -5114,7 +5114,7 @@ This is the last release to support building with Swift 4.2.x.
 ### Breaking
 
 * To enable collecting rules, many breaking changes to `SwiftLintFramework`'s
-  public API were made the `Linter` type was significantely changed, and a new
+  public API were made the `Linter` type was significantly changed, and a new
   `CollectedLinter` type was introduced. Many public `SwiftLintFramework` APIs
   that interacted with `Linter` have also been affected. More new types and
   protocols were added such as `RuleStorage`, `AnyCollectingRule`,
