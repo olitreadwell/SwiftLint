@@ -67,7 +67,7 @@ else
 fi
 ```
 
-![](assets/runscript.png)
+![](https://web.archive.org/web/20240328023749/https://raw.githubusercontent.com/realm/SwiftLint/main/assets/runscript.png)
 
 만약, 애플 실리콘 환경에서 Homebrew를 통해 SwiftLint를 설치했다면, 아마도 다음과 같은 경고를 겪었을 것입니다.
 
@@ -105,7 +105,7 @@ CocoaPods을 사용해서 설치한 경우는 아래 스크립트를 대신 사�
 
 #### Xcode 저장시 실행되는 플러그인
 
-Xcode에서 저장시 `swiftlint autocorrect`를 실행하려면 Alcatraz에서 [SwiftLintXcode](https://github.com/ypresto/SwiftLintXcode) 플러그인을 설치합니다.
+Xcode에서 저장시 `swiftlint --fix`를 실행하려면 Alcatraz에서 [SwiftLintXcode](https://github.com/ypresto/SwiftLintXcode) 플러그인을 설치합니다.
 
 ⚠ ️이 플러그인은 Xcode 8에서 SIP를 비활성화하지 않으면 동작하지 않으며, 이는 권장하지 않습니다.
 
@@ -138,7 +138,6 @@ swiftlint(
 $ swiftlint help
 Available commands:
 
-   autocorrect  Automatically correct warnings and errors
    help         Display general or command-specific help
    lint         Print lint warnings and errors for the Swift files in the current directory (default command)
    rules        Display the list of rules and their identifiers
@@ -147,7 +146,7 @@ Available commands:
 
 스위프트 파일이 있는 디렉터리에서 `swiftlint`를 실행합니다. 디렉터리는 재귀적으로 탐색됩니다.
 
-`lint`나 `autocorrect`를 사용할 때 여러 파일(예를 들면, [`ExtraBuildPhase`](https://github.com/norio-nomura/ExtraBuildPhase) 플러그인에 의해 Xcode가 변경한 파일들 혹은 `git ls-files -m` 명령으로 인해 작업 트리에서 변경된 파일들)을 지정하려면 `--use-script-input-files` 옵션을 넘기고 다음 인스턴스 변수들을 설정하면 됩니다. `SCRIPT_INPUT_FILE_COUNT` and
+`lint`나 `analyze`를 사용할 때 여러 파일(예를 들면, [`ExtraBuildPhase`](https://github.com/norio-nomura/ExtraBuildPhase) 플러그인에 의해 Xcode가 변경한 파일들 혹은 `git ls-files -m` 명령으로 인해 작업 트리에서 변경된 파일들)을 지정하려면 `--use-script-input-files` 옵션을 넘기고 다음 인스턴스 변수들을 설정하면 됩니다. `SCRIPT_INPUT_FILE_COUNT` and
 `SCRIPT_INPUT_FILE_0`, `SCRIPT_INPUT_FILE_1`...`SCRIPT_INPUT_FILE_{SCRIPT_INPUT_FILE_COUNT - 1}`
 
 이는 [Xcode의 커스텀 스크립트 단계](http://indiestack.com/2014/12/speeding-up-custom-script-phases/)에 입력 파일로 환경 변수를 지정하는 것과 동일합니다.
@@ -177,7 +176,7 @@ SwiftLint가 어느 스위프트 툴체인을 사용할지 결정하는 순서�
 `TOOLCHAINS` 환경 변수에 스위프트 툴체인 버전을 식별할 수 있는 값을 리버스 DNS 형식으로 지정할 수도 있습니다.
 
 ```shell
-TOOLCHAINS=com.apple.dt.toolchain.Swift_2_3 swiftlint autocorrect
+TOOLCHAINS=com.apple.dt.toolchain.Swift_2_3 swiftlint --fix
 ```
 
 리눅스에서는 SourceKit이 `/usr/lib/libsourcekitdInProc.so` 혹은 `LINUX_SOURCEKIT_LIB_PATH` 환경변수로 지정된 경로에 존재해야 합니다.
@@ -348,7 +347,7 @@ SwiftLint는 설정 파일을 중첩되게 구성해서 린트 과정을 더욱 
 
 SwiftLint는 일부 위반 사항들을 자동으로 수정할 수 있습니다. 디스크 상의 파일들은 수정된 버전으로 덮어 쓰여지게 됩니다.
 
-`swiftlint autocorrect`를 실행하기 전에 파일들을 백업해주세요. 그렇지 않으면 중요한 데이터가 유실될 수도 있습니다.
+`swiftlint --fix`를 실행하기 전에 파일들을 백업해주세요. 그렇지 않으면 중요한 데이터가 유실될 수도 있습니다.
 
 표준 린트 검사는 자동 수정 중에는 비활성화됩니다. 위반 사항들은 파일이 자동 수정된 후에 더이상 유효하지 않을 가능성이 크기 때문입니다.
 
@@ -362,4 +361,4 @@ SwiftLint는 일부 위반 사항들을 자동으로 수정할 수 있습니다.
 
 SwiftLint는 Realm Inc.에 의해 만들어져서 관리되고 있습니다. Realm의 이름과 로고는 Realm Inc.의 트레이드 마크입니다.
 
-우리는 오픈 소스 소프트웨어를 사랑합니다:heart:! Realm의 [다른 오픈소스 프로젝트](https://github.com/realm)와 [블로그](https://realm.io/news)들도 들러주시고, 트위터([@realm](https://twitter.com/realm))로도 반갑게 인사 주세요.
+우리는 오픈 소스 소프트웨어를 사랑합니다:heart:! Realm의 [다른 오픈소스 프로젝트](https://github.com/realm)와 [블로그](https://web.archive.org/web/20170327173731/https://realm.io/news/)들도 들러주시고, 트위터([@realm](https://twitter.com/realm))로도 반갑게 인사 주세요.

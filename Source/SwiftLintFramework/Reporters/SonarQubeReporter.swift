@@ -14,7 +14,8 @@ struct SonarQubeReporter: Reporter {
 
     // MARK: - Private
 
-    // refer to https://docs.sonarqube.org/display/SONAR/Generic+Issue+Data
+    // swiftlint:disable:next line_length
+    // refer to https://docs.sonarsource.com/sonarqube-server/latest/analyzing-source-code/importing-external-issues/generic-issue-import-format/
     private static func dictionary(for violation: StyleViolation) -> [String: Any] {
         [
             "engineId": "SwiftLint",

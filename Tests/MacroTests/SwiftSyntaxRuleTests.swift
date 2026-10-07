@@ -89,7 +89,7 @@ struct SwiftSyntaxRuleTests {
     }
 
     @Test
-    func correctableWithoutExplcitRewriter() {
+    func correctableWithoutExplicitRewriter() {
         assertMacroExpansion(
             """
             @SwiftSyntaxRule(correctable: true)
