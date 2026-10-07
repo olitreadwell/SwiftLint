@@ -10,7 +10,7 @@ private let commandsNotExpectingPaths: Set<String> = [
     "version",
 ]
 
-private let commandsWithoutCachPathOption: Set<String> = commandsNotExpectingPaths.union([
+private let commandsWithoutCachePathOption: Set<String> = commandsNotExpectingPaths.union([
     "analyze",
 ])
 
@@ -69,7 +69,7 @@ extension SwiftLintCommandPlugin {
         process.currentDirectoryURL = URL(fileURLWithPath: context.workingDirectory)
         process.executableURL = URL(fileURLWithPath: try context.tool)
         process.arguments = arguments
-        if commandsWithoutCachPathOption.isDisjoint(with: arguments) {
+        if commandsWithoutCachePathOption.isDisjoint(with: arguments) {
             process.arguments! += ["--cache-path", context.cacheDirectory]
         }
         if commandsNotExpectingPaths.isDisjoint(with: arguments) {

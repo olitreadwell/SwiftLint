@@ -193,7 +193,7 @@ internal extension Configuration.FileGraph.FilePath {
             try configString.write(to: path, atomically: true, encoding: .utf8)
             return path
         } catch {
-            queuedPrintError("Failed cache for for remote configuration at path '\(path)'")
+            queuedPrintError("Failed cache for remote configuration at path '\(path)'")
             return nil
         }
     }

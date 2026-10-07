@@ -11,7 +11,7 @@ struct RegexConfigurationTests {
     }
 
     @Test
-    func shouldValidateWithSingleExluded() throws {
+    func shouldValidateWithSingleExcluded() throws {
         var config = RegexConfiguration<MockRule>(identifier: "example")
         try config.apply(configuration: [
             "regex": "try!",
@@ -23,7 +23,7 @@ struct RegexConfigurationTests {
     }
 
     @Test
-    func shouldValidateWithArrayExluded() throws {
+    func shouldValidateWithArrayExcluded() throws {
         var config = RegexConfiguration<MockRule>(identifier: "example")
         try config.apply(configuration: [
             "regex": "try!",

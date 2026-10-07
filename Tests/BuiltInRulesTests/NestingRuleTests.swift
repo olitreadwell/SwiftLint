@@ -258,7 +258,7 @@ struct NestingRuleTests { // swiftlint:disable:this type_body_length
                 """,
 
                 """
-                    for i in indicies {
+                    for i in indices {
                        \(type) Example_0 {
                            \(type) Example_1 {
                                \(type) Example 2 {}
@@ -528,26 +528,26 @@ struct NestingRuleTests { // swiftlint:disable:this type_body_length
                     }
                 """,
                 """
-                    protocol Example_Protcol {
+                    protocol Example_Protocol {
                         associatedtype AssociatedType
                     }
 
                     \(type) Example_1 {
-                        \(type) Example_2: Example_Protcol {
+                        \(type) Example_2: Example_Protocol {
                             typealias AssociatedType = Int
                         }
                     }
                 """,
                 """
-                    protocol Example_Protcol {
+                    protocol Example_Protocol {
                         associatedtype AssociatedType
                     }
 
                     \(type) Example_1 {
-                        \(type) Example_2: SomeProtcol {
+                        \(type) Example_2: SomeProtocol {
                             typealias Example_2_Type = Example_2.Type
                         }
-                        \(type) Example_3: Example_Protcol {
+                        \(type) Example_3: Example_Protocol {
                             typealias AssociatedType = Int
                         }
                     }

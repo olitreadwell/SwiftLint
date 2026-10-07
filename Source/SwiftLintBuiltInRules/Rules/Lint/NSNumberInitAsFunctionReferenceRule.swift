@@ -1,7 +1,7 @@
 import SwiftLintCore
 import SwiftSyntax
 
-// this rule exists due to a compiler bug: https://github.com/apple/swift/issues/51036
+// this rule exists due to a compiler bug: https://github.com/swiftlang/swift/issues/51036
 @SwiftSyntaxRule
 struct NSNumberInitAsFunctionReferenceRule: Rule {
     var configuration = SeverityConfiguration<Self>(.warning)
