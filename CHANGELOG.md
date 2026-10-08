@@ -34,6 +34,13 @@
   [Hokila](https://github.com/Hokila)
   [#6897](https://github.com/realm/SwiftLint/issues/6897)
 
+* Stop `redundant_final` from removing `final` from `class` members of a final
+  class. Such declarations are what `non_overridable_class_declaration` asks
+  for, so `swiftlint --fix` previously alternated between adding and removing
+  the modifier without ever settling.  
+  [olitreadwell](https://github.com/olitreadwell)
+  [#6936](https://github.com/realm/SwiftLint/issues/6936)
+
 ## 0.65.1: Fresh Folded Fixtures
 
 ### Breaking
