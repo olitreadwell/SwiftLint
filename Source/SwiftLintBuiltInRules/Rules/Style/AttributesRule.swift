@@ -22,7 +22,8 @@ struct AttributesRule: Rule {
         flush-left access modifiers, so `internal`, `public`, etc appear in the leftmost column. Many developers \
         mix-and-match styles for short Swift attributes like `@objc`
 
-        See https://ericasadun.com/2016/10/02/quick-style-survey/ for discussion.
+        See https://web.archive.org/web/20180304052139/http://ericasadun.com/2016/10/02/quick-style-survey/ \
+        for discussion.
 
         SwiftLint's rule requires attributes to be on their own lines for functions and types, but on the same line \
         for variables and imports.

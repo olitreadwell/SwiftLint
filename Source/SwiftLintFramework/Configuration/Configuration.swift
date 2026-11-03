@@ -210,7 +210,7 @@ public struct Configuration {
     /// - parameter configurationFiles:         The path on disk to one or multiple configuration files. If this array
     ///                                         is empty, the default `.swiftlint.yml` file will be used.
     /// - parameter enableAllRules:             Enable all available rules.
-    /// - parameter cachePath:                  The location of the persisted cache to use whith this configuration.
+    /// - parameter cachePath:                  The location of the persisted cache to use with this configuration.
     /// - parameter ignoreParentAndChildConfigs:If `true`, child and parent config references will be ignored.
     /// - parameter useDefaultConfigOnFailure:  If this value is specified, it will override the normal behavior.
     ///                                         This is only intended for tests checking whether invalid configs fail.

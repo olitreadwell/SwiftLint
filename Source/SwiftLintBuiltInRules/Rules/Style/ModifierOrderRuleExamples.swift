@@ -218,7 +218,7 @@ internal struct ModifierOrderRuleExamples {
         """,
         """
         public struct Foo {
-           weak internal var weakBar: NSObjetc? = nil
+           weak internal var weakBar: NSObject? = nil
         }
         """,
         """

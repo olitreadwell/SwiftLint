@@ -18,4 +18,4 @@ Please describe the rule idea, format this issue's title as `Rule Request: [Rule
 2. Provide several examples of what _would_ and _wouldn't_ trigger violations.
 3. Should the rule be configurable, if so what parameters should be configurable?
 4. Should the rule be opt-in or enabled by default? Why?
-   See [README.md](../README.md#opt-in-rules) for guidelines on when to mark a rule as opt-in.
+   See [README.md](https://github.com/realm/SwiftLint#opt-in-rules) for guidelines on when to mark a rule as opt-in.
