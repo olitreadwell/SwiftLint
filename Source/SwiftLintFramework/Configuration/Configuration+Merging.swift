@@ -18,7 +18,7 @@ extension Configuration {
             includedPaths: mergedIncludedAndExcluded.includedPaths,
             excludedPaths: mergedIncludedAndExcluded.excludedPaths,
             indentation: childConfiguration.indentation,
-            warningThreshold: mergedWarningTreshold(with: childConfiguration),
+            warningThreshold: mergedWarningThreshold(with: childConfiguration),
             reporter: reporter,
             cachePath: cachePath,
             allowZeroLintableFiles: childConfiguration.allowZeroLintableFiles,
@@ -50,14 +50,14 @@ extension Configuration {
         )
     }
 
-    private func mergedWarningTreshold(
+    private func mergedWarningThreshold(
         with childConfiguration: Configuration
     ) -> Int? {
-        if let parentWarningTreshold = warningThreshold {
-            if let childWarningTreshold = childConfiguration.warningThreshold {
-                return min(childWarningTreshold, parentWarningTreshold)
+        if let parentWarningThreshold = warningThreshold {
+            if let childWarningThreshold = childConfiguration.warningThreshold {
+                return min(childWarningThreshold, parentWarningThreshold)
             }
-            return parentWarningTreshold
+            return parentWarningThreshold
         }
         return childConfiguration.warningThreshold
     }

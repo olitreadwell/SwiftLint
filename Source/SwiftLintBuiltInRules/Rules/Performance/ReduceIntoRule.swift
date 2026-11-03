@@ -150,9 +150,9 @@ private extension ExprSyntax {
             if let identifierExpr = expr.calledExpression.identifierExpr {
                 return identifierExpr.isCopyOnWriteType
             }
-            if let memberAccesExpr = expr.calledExpression.as(MemberAccessExprSyntax.self),
-               memberAccesExpr.declName.baseName.text == "init",
-               let identifierExpr = memberAccesExpr.base?.identifierExpr {
+            if let memberAccessExpr = expr.calledExpression.as(MemberAccessExprSyntax.self),
+               memberAccessExpr.declName.baseName.text == "init",
+               let identifierExpr = memberAccessExpr.base?.identifierExpr {
                 return identifierExpr.isCopyOnWriteType
             }
             if expr.calledExpression.isCopyOnWriteType {

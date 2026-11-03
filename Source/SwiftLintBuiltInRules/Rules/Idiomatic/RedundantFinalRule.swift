@@ -14,6 +14,9 @@ struct RedundantFinalRule: Rule {
             and their members. Note that this may change in future Swift versions if actor inheritance is introduced.
 
             Additionally, `final` is redundant on members of a `final class` since they cannot be overridden.
+            Declarations using the `class` keyword are exempt, because the explicit `final class` form is what the
+            `non_overridable_class_declaration` rule requires for members of a final class; dropping the `final`
+            would immediately re-trigger that rule and make `swiftlint --fix` alternate between the two forms.
             """,
         kind: .idiomatic,
         nonTriggeringExamples: #examples([
@@ -35,6 +38,17 @@ struct RedundantFinalRule: Rule {
             """
             class MyClass {
                 final func doWork() {}
+            }
+            """,
+            """
+            final class C {
+                final class var b: Int { 0 }
+                final class func f() {}
+            }
+            """,
+            """
+            final class C {
+                final class subscript(_: Int) -> Int { 0 }
             }
             """,
         ]),
@@ -133,19 +147,25 @@ private extension RedundantFinalRule {
         }
 
         override func visitPost(_ node: FunctionDeclSyntax) {
-            if finalTypeStack.peek() == true, let finalModifier = node.modifiers.modifier(with: .final) {
+            if finalTypeStack.peek() == true,
+               !node.modifiers.contains(keyword: .class),
+               let finalModifier = node.modifiers.modifier(with: .final) {
                 addViolation(for: finalModifier)
             }
         }
 
         override func visitPost(_ node: VariableDeclSyntax) {
-            if finalTypeStack.peek() == true, let finalModifier = node.modifiers.modifier(with: .final) {
+            if finalTypeStack.peek() == true,
+               !node.modifiers.contains(keyword: .class),
+               let finalModifier = node.modifiers.modifier(with: .final) {
                 addViolation(for: finalModifier)
             }
         }
 
         override func visitPost(_ node: SubscriptDeclSyntax) {
-            if finalTypeStack.peek() == true, let finalModifier = node.modifiers.modifier(with: .final) {
+            if finalTypeStack.peek() == true,
+               !node.modifiers.contains(keyword: .class),
+               let finalModifier = node.modifiers.modifier(with: .final) {
                 addViolation(for: finalModifier)
             }
         }

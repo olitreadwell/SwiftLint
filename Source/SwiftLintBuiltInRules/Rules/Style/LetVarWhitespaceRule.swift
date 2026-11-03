@@ -178,9 +178,9 @@ struct LetVarWhitespaceRule: Rule {
                 """,
             """
                 func f() {}
-                ↓@Wapper
+                ↓@Wrapper
                 let isNumber = false
-                @Wapper
+                @Wrapper
                 var isEnabled = true
                 ↓func g() {}
                 """,

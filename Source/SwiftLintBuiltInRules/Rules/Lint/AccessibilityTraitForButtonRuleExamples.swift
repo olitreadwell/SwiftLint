@@ -171,6 +171,34 @@ internal struct AccessibilityTraitForButtonRuleExamples {
             }
         }
         """,
+        """
+        struct MyView: View {
+            var body: some View {
+                Text("Learn more")
+                    .onTapGesture {
+                        print("tapped")
+                    }
+                    .accessibilityAddTraits({
+                        if #available(iOS 17, *) {
+                            [.isToggle, .isButton]
+                        } else {
+                            .isButton
+                        }
+                    }())
+            }
+        }
+        """,
+        """
+        struct MyView: View {
+            var body: some View {
+                Text("Learn more")
+                    .onTapGesture {
+                        print("tapped")
+                    }
+                    .accessibilityAddTraits(isHeader ? [.isButton, .isHeader] : [.isButton])
+            }
+        }
+        """,
     ])
 
     static let triggeringExamples = #examples([
@@ -265,6 +293,34 @@ internal struct AccessibilityTraitForButtonRuleExamples {
                     .highPriorityGesture(TapGesture().onEnded {
                         print("tapped")
                     })
+            }
+        }
+        """,
+        """
+        struct MyView: View {
+            var body: some View {
+                ↓Text("Learn more")
+                    .onTapGesture {
+                        print("tapped")
+                    }
+                    .accessibilityAddTraits({
+                        if #available(iOS 17, *) {
+                            [.isButton, .isToggle]
+                        } else {
+                            .isHeader
+                        }
+                    }())
+            }
+        }
+        """,
+        """
+        struct MyView: View {
+            var body: some View {
+                ↓Text("Learn more")
+                    .onTapGesture {
+                        print("tapped")
+                    }
+                    .accessibilityAddTraits(isHeader ? [.isButton] : [.isHeader])
             }
         }
         """,
