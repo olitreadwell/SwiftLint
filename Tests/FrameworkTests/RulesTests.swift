@@ -20,7 +20,7 @@ struct RulesTests {
 
     @Test
     func requiredEnumCase() {
-        let configuration = ["NetworkResponsable": ["notConnected": "error"]]
+        let configuration = ["NetworkResponsible": ["notConnected": "error"]]
         verifyRule(RequiredEnumCaseRule.description, ruleConfiguration: configuration)
     }
 

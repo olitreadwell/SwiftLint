@@ -488,7 +488,7 @@ func verifyLint(_ ruleDescription: RuleDescription,
             } else {
                 #expect(
                     violations.count == 1,
-                    "Expected exaclty one violation when code is nested inside a comment",
+                    "Expected exactly one violation when code is nested inside a comment",
                     sourceLocation: example.sourceLocation
                 )
             }
@@ -509,7 +509,7 @@ func verifyLint(_ ruleDescription: RuleDescription,
             } else {
                 #expect(
                     violations.count == 1,
-                    "Expected exaclty one violation when code is nested inside a string literal",
+                    "Expected exactly one violation when code is nested inside a string literal",
                     sourceLocation: example.sourceLocation
                 )
             }

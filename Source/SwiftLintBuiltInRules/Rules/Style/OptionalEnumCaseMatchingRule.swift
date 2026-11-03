@@ -37,7 +37,7 @@ struct OptionalEnumCaseMatchingRule: Rule {
                 break
             }
             """,
-            // https://github.com/apple/swift/issues/61817
+            // https://github.com/swiftlang/swift/issues/61817
             """
             switch bool {
             case true?:

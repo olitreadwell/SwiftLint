@@ -93,7 +93,7 @@ struct StrictFilePrivateRule: Rule {
                 }
             """,
             """
-                struct Outter {
+                struct Outer {
                     struct Inter {
                         ↓fileprivate struct Inner {}
                     }
