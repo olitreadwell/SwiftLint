@@ -29,10 +29,24 @@
   [SimplyDanny](https://github.com/SimplyDanny)
   [#5740](https://github.com/realm/SwiftLint/issues/5740)
 
+* Fix baseline matching for violations whose source files live under a
+  `/private` path (e.g. a `mktemp -d` directory or CI workspace) when the
+  configuration has a non-empty `excluded:` list. The relative file keys used at
+  write time and read time are now normalized consistently.  
+  [olitreadwell](https://github.com/olitreadwell)
+  [#6909](https://github.com/realm/SwiftLint/issues/6909)
+
 * Fix `orphaned_doc_comment` to report documentation groups superseded by later
   docs after a blank line.  
   [Hokila](https://github.com/Hokila)
   [#6897](https://github.com/realm/SwiftLint/issues/6897)
+
+* Stop `redundant_final` from removing `final` from `class` members of a final
+  class. Such declarations are what `non_overridable_class_declaration` asks
+  for, so `swiftlint --fix` previously alternated between adding and removing
+  the modifier without ever settling.  
+  [olitreadwell](https://github.com/olitreadwell)
+  [#6936](https://github.com/realm/SwiftLint/issues/6936)
 
 ## 0.65.1: Fresh Folded Fixtures
 
