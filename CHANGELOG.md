@@ -41,6 +41,12 @@
   [Hokila](https://github.com/Hokila)
   [#6897](https://github.com/realm/SwiftLint/issues/6897)
 
+* Honor `remote_timeout` and `remote_timeout_if_cached` when they are given as
+  whole numbers. Values without a fractional part are parsed as integers, which
+  the remote configuration resolver ignored, so timeouts such as
+  `remote_timeout: 5` had no effect.  
+  [olitreadwell](https://github.com/olitreadwell)
+
 * Fix `accessibility_trait_for_button` to recognize the button and link traits
   provided by `if #available` or ternary expressions whenever every branch
   provides the trait.  

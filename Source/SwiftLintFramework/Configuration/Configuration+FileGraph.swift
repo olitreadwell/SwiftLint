@@ -167,13 +167,13 @@ package extension Configuration {
 
                     // Use timeout config from vertex / parent of vertex if some
                     let remoteConfigTimeout =
-                        vertex.configurationDict[Configuration.Key.remoteConfigTimeout.rawValue]
-                            as? TimeInterval
-                            ?? remoteConfigTimeoutOverride // from vertex parent
+                        Self.timeInterval(
+                            from: vertex.configurationDict[Configuration.Key.remoteConfigTimeout.rawValue]
+                        ) ?? remoteConfigTimeoutOverride // from vertex parent
                     let remoteConfigTimeoutIfCached =
-                        vertex.configurationDict[Configuration.Key.remoteConfigTimeoutIfCached.rawValue]
-                            as? TimeInterval
-                            ?? remoteConfigTimeoutIfCachedOverride // from vertex parent
+                        Self.timeInterval(
+                            from: vertex.configurationDict[Configuration.Key.remoteConfigTimeoutIfCached.rawValue]
+                        ) ?? remoteConfigTimeoutIfCachedOverride // from vertex parent
 
                     try process(
                         vertex: referencedVertex,
@@ -188,6 +188,22 @@ package extension Configuration {
             vertices.first {
                 $0.originalRemoteString != nil && $0.originalRemoteString == vertex.originalRemoteString
             } ?? vertices.first { $0.filePath == vertex.filePath }
+        }
+
+        /// Interprets a value from a configuration dictionary as a timeout in seconds.
+        ///
+        /// YAML scalars without a fractional part are parsed as `Int` while other numbers are parsed as
+        /// `Double`, so both have to be accepted. Otherwise a value like `remote_timeout: 5` would be
+        /// ignored silently.
+        static func timeInterval(from value: Any?) -> TimeInterval? {
+            switch value {
+            case let value as TimeInterval:
+                value
+            case let value as Int:
+                TimeInterval(value)
+            default:
+                nil
+            }
         }
 
         // MARK: Validating
