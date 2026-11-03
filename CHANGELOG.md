@@ -41,6 +41,12 @@
   [Hokila](https://github.com/Hokila)
   [#6897](https://github.com/realm/SwiftLint/issues/6897)
 
+* Fix `accessibility_trait_for_button` to recognize the button and link traits
+  provided by `if #available` or ternary expressions whenever every branch
+  provides the trait.  
+  [olitreadwell](https://github.com/olitreadwell)
+  [#6446](https://github.com/realm/SwiftLint/issues/6446)
+
 * Stop `redundant_final` from removing `final` from `class` members of a final
   class. Such declarations are what `non_overridable_class_declaration` asks
   for, so `swiftlint --fix` previously alternated between adding and removing
